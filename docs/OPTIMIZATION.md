@@ -6,7 +6,7 @@ We preserve the Unit 2 estimand, prior scenarios, random seed and child `SeedSeq
 
 ## Optimization 1 — algorithmic caching and matrix-vector EM
 
-**Problem:** Local Windows profiling of the original `fit_kw` identified 350 calls to `scipy.special.logsumexp`, cumulatively consuming 0.189 seconds out of 0.265 profiled seconds for one n=400 fit; the optimized `fit_kw` required 0.010 seconds in the same profiler run. Each iteration materializes an `n × m` matrix of log-joint component densities and new responsibility arrays.
+**Problem:** Local Windows profiling of the original `fit_kw` identified 350 calls to `scipy.special.logsumexp`, cumulatively consuming 0.202 seconds out of 0.281 profiled seconds for one n=400 fit; the optimized `fit_kw` required 0.012 seconds in the same profiler run. Each iteration materializes an `n × m` matrix of log-joint component densities and new responsibility arrays.
 
 **Original (abbreviated):**
 
@@ -68,20 +68,20 @@ The matched-input EM-only benchmark run on the local Windows machine (`make benc
 
 | Scenario | n | Baseline (s) | Optimized (s) | Speedup |
 |---|---:|---:|---:|---:|
-| two_point | 100 | 0.088068 | 0.006631 | 13.28× |
-| uniform | 100 | 0.083286 | 0.004982 | 16.72× |
-| two_point | 400 | 0.245741 | 0.007323 | 33.56× |
-| uniform | 400 | 0.239804 | 0.008551 | 28.04× |
-| two_point | 800 | 0.650504 | 0.010942 | 59.45× |
-| uniform | 800 | 0.591030 | 0.011739 | 50.35× |
+| two_point | 100 | 0.079184 | 0.005344 | 14.82× |
+| uniform | 100 | 0.073408 | 0.005231 | 14.03× |
+| two_point | 400 | 0.228834 | 0.007958 | 28.76× |
+| uniform | 400 | 0.236446 | 0.021477 | 11.01× |
+| two_point | 800 | 0.956050 | 0.025335 | 37.74× |
+| uniform | 800 | 0.902794 | 0.025186 | 35.84× |
 
 Profiling evidence: `results/performance/profile_baseline.txt`, `profile_optimized.txt`, and corresponding `.prof` files. Figures: `benchmark.png` and `complexity.png`.
 
-**Complexity:** Local fitted log-log slopes (n=100–800): **two_point** baseline **1.0091**, optimized **0.3178**; **uniform** baseline **1.0225**, optimized **0.3842** (from `results/performance/complexity_slopes.csv`). Both implementations retain theoretical O(Tnm) time complexity; finite-range slopes are influenced by overhead, cache behavior and fixed iterations. Do not treat a sublinear finite-range slope as evidence of sublinear asymptotic complexity.
+**Complexity:** The most recent local fitted log-log slopes (n=100–800) are **two_point** baseline **1.2035**, optimized **0.9779**; **uniform** baseline **1.3588**, optimized **0.9708** (from `results/performance/complexity_slopes.csv`). Both implementations retain theoretical O(Tnm) time complexity; finite-range fitted slopes depend on overhead, cache behavior and fixed iterations and do not establish a lower asymptotic complexity class.
 
 ## End-to-end baseline timing
 
-For the complete preserved baseline simulation, run `python -m src.baseline_timing` from the project root. It writes the measured duration to `results/performance/baseline_full_runtime.json` and saves outputs separately to `results/baseline_raw/`. The EM-only speedups in the table above should not be interpreted as full-pipeline speedups. Run `python -m src.finalize_submission` after baseline timing to insert the measured value automatically into `docs/BASELINE.md` and verify outputs.
+The complete preserved baseline simulation took **40.974 seconds** for 80 replicates (2 scenarios × 40, n=400) on the local Windows machine. This includes data generation, fitting, posterior predictions, metric calculations and CSV export, but excludes downstream analysis and figures. The measured duration is recorded in `results/performance/baseline_full_runtime.json` and baseline outputs in `results/baseline_raw/`. An optimized full-study runtime was not measured, so the EM-only speedups above are not claimed as end-to-end speedups. To reproduce the baseline measurement, run `python -m src.baseline_timing`, followed by `python -m src.finalize_submission`.
 
 ## Numerical stability and convergence checks
 
