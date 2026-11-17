@@ -1,0 +1,12 @@
+{
+  "baseline_full_runtime_seconds": 40.973833,
+  "reps_per_scenario": 40,
+  "n": 400,
+  "total_replicates": 80,
+  "grid_points": 121,
+  "max_iter": 350,
+  "seed": 20261021,
+  "iterations_min": 350,
+  "iterations_max": 350,
+  "note": "Generation, fitting, posterior predictions, metrics and CSV export; excludes analysis and figures."
+}

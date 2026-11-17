@@ -1,0 +1,5 @@
+scenario,version,loglog_slope
+two_point,baseline,1.203469276077329
+two_point,optimized,0.9779497198795051
+uniform,baseline,1.358816184321863
+uniform,optimized,0.9708485716462081

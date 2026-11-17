@@ -1,0 +1,26 @@
+         7018 function calls in 0.012 seconds
+
+   Ordered by: cumulative time
+   List reduced from 25 to 18 due to restriction <18>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.008    0.008    0.012    0.012 C:\Users\jiang\OneDrive\桌面\University\Graduate\UM 2026 Fall\STATS 607\Project 3\src\model.py:12(fit_kw)
+     1403    0.002    0.000    0.002    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+      700    0.001    0.000    0.001    0.000 C:\Users\jiang\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\fromnumeric.py:89(_wrapreduction_any_all)
+      350    0.000    0.000    0.001    0.000 C:\Users\jiang\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\fromnumeric.py:2338(sum)
+      350    0.000    0.000    0.001    0.000 C:\Users\jiang\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\fromnumeric.py:2589(all)
+      350    0.000    0.000    0.001    0.000 C:\Users\jiang\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\fromnumeric.py:2477(any)
+      350    0.000    0.000    0.001    0.000 C:\Users\jiang\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\fromnumeric.py:69(_wrapreduction)
+      350    0.000    0.000    0.001    0.000 {method 'sum' of 'numpy.ndarray' objects}
+      350    0.000    0.000    0.000    0.000 C:\Users\jiang\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\_methods.py:49(_sum)
+     1050    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+      350    0.000    0.000    0.000    0.000 C:\Users\jiang\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\fromnumeric.py:2584(_all_dispatcher)
+      350    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+      350    0.000    0.000    0.000    0.000 C:\Users\jiang\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\fromnumeric.py:2472(_any_dispatcher)
+      350    0.000    0.000    0.000    0.000 {built-in method builtins.abs}
+      350    0.000    0.000    0.000    0.000 C:\Users\jiang\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\fromnumeric.py:2333(_sum_dispatcher)
+        1    0.000    0.000    0.000    0.000 {method 'max' of 'numpy.ndarray' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users\jiang\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\_methods.py:41(_amax)
+        2    0.000    0.000    0.000    0.000 {method 'all' of 'numpy.ndarray' objects}
+
+

@@ -1,0 +1,7 @@
+N = 400
+H = 0.5
+SEED = 20261021
+REPS = 40
+SCENARIOS = ('two_point', 'uniform')
+GRID_POINTS = 121
+MAX_ITER = 350
